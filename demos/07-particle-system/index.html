@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!-- docs on particle system component: https://github.com/IdeaSpaceVR/aframe-particle-system-component -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Particle system</title>
+  <script src="aframe.min.js"></script>
+  <script src="aframe-ar.js"></script>
+  <!-- YOU HAVE TO LINK TO IT HERE -->
+  <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene embedded="" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+    <!-- Load gltf in asset management -->
+    <a-assets>
+      <a-asset-item id="creeps" src="assets/creeps.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- Particle system uses 'default' preset, setting custom colors. -->
+<!-- outside of marker the particles are oriented to the camera -->
+    <a-entity position="0 2.25 -50" particle-system="color: #EF0000,#44CC00"></a-entity>
+
+    <!-- dust preset (also static) -->
+    <a-entity position="0 0 0" particle-system="preset: dust; particleCount: 10000"></a-entity>
+
+
+
+    <a-marker preset=" hiro">
+      <!-- Particle system uses 'default' preset (coming out of marker), setting custom colors. -->
+      <a-entity position="0 0 0" size=".01" velocityValue="0 1 0" particle-system="color: #44CC00,#FFF"></a-entity>
+
+
+      <a-box position='0 0.5 0' rotation="45 0 0" scale="1 1 1" material='color: green;'></a-box>
+    </a-marker>
+
+
+
+    <a-entity camera=""></a-entity>
+  </a-scene>
+
+
+</body>
+
+</html>

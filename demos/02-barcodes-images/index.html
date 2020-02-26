@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<!-- A-Frame Image documentation: https://aframe.io/docs/1.0.0/primitives/a-image.html -->
+<!-- Build a basic scene tut is very helpful: https://aframe.io/docs/1.0.0/guides/building-a-basic-scene.html#sidebar-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Images</title>
+  <script src="aframe.min.js"></script>
+  <script src="aframe-ar.js"></script>
+</head>
+
+<body>
+  <a-scene embedded="" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+    <!-- first you preload the images into the A-frame asset management system -->
+    <a-assets>
+      <img id="cat" src="assets/cat_in_cat.png">
+      <img id="plur" src="assets/PLUR.jpg">
+    </a-assets>
+
+
+    <a-marker type="barcode" value="5">
+      <!-- Using the asset management system the src link is the #id you gave it above-->
+      <!-- Note the width and height keep your image size in proportion. Position is calculated in "meters"  -->
+      <a-image src="#cat" width="3" height="1.5" rotation="90 0 0"></a-image>
+      <!-- You can also define the URL inline (like you would in normal HTML). Not recommended but more comfortable for web developers. -->
+      <!-- <a-image src="assets/cat_in_cat.png"></a-image> -->
+    </a-marker>
+
+    <a-marker type="barcode" value="3">
+      <a-image src="#plur" width="3" height="1.7" rotation="90 0 0" position="0 2 0"></a-image>
+    </a-marker>
+
+    <a-entity camera=""></a-entity>
+  </a-scene>
+
+
+</body>
+
+</html>
